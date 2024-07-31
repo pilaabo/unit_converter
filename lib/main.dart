@@ -9,6 +9,7 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   late double _numberForm;
+  late String _startMeasure;
   final List<String> _measures = [
     'meters',
     'kilometers',
@@ -23,6 +24,7 @@ class MyAppState extends State<MyApp> {
   @override
   void initState() {
     _numberForm = 0;
+    _startMeasure = _measures[0];
     super.initState();
   }
 
@@ -37,11 +39,16 @@ class MyAppState extends State<MyApp> {
           child: Column(
             children: [
               DropdownButton<String>(
+                value: _startMeasure,
                 items: _measures
                     .map((value) =>
                         DropdownMenuItem<String>(value: value, child: Text(value)))
                     .toList(),
-                onChanged: (_) {},
+                onChanged: (value) {
+                  setState(() {
+                    _startMeasure = value ?? _measures[0];
+                  });
+                },
               ),
               TextField(
                 onChanged: (text) {
