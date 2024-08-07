@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   MyAppState createState() => MyAppState();
 }
@@ -73,23 +75,23 @@ class MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Measures Convertor'),
+          title: const Text('Measures Convertor'),
         ),
         body: Center(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     'Value',
                     style: labelStyle,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   TextField(
                     style: inputStyle,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         hintText: 'Please insert the measure to be converted'),
                     onChanged: (text) {
                       var rv = double.tryParse(text);
@@ -100,12 +102,12 @@ class MyAppState extends State<MyApp> {
                       }
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     'From',
                     style: labelStyle,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   DropdownButton<String>(
                     isExpanded: true,
                     style: inputStyle,
@@ -121,12 +123,12 @@ class MyAppState extends State<MyApp> {
                       });
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     'To',
                     style: labelStyle,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   DropdownButton<String>(
                     isExpanded: true,
                     style: inputStyle,
@@ -142,7 +144,7 @@ class MyAppState extends State<MyApp> {
                       });
                     },
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   ElevatedButton(
                     onPressed: () {
                       if (_numberForm == 0) {
@@ -156,12 +158,12 @@ class MyAppState extends State<MyApp> {
                       style: inputStyle,
                     ),
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   Text(
                     _resultMessage,
                     style: labelStyle,
                   ),
-                  SizedBox(height: 60),
+                  const SizedBox(height: 60),
                 ],
               ),
             ),
